@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Epsilon Media | Ingeniería audiovisual</title>
+    <meta
+      name="description"
+      content="Epsilon Media: instalaciones audiovisuales fijas y producción técnica de eventos. Nuestra nueva web estará disponible muy pronto."
+    />
+    <meta name="theme-color" content="#0a0e14" />
+    <link rel="canonical" href="https://epsilonmedia.eu/" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Epsilon Media" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:url" content="https://epsilonmedia.eu/" />
+    <meta property="og:title" content="Epsilon Media | Ingeniería audiovisual" />
+    <meta
+      property="og:description"
+      content="Instalaciones audiovisuales fijas y producción técnica de eventos. Nuestra nueva web estará disponible muy pronto."
+    />
+
+    <link
+      rel="preload"
+      href="fonts/fraunces-latin-opsz-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/instrument-sans-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <style>
+      /* Mismos tokens que el sistema "Encendido de sala" de la web (src/styles/global.css). */
+      @font-face {
+        font-family: "Fraunces Variable";
+        font-style: normal;
+        font-display: swap;
+        font-weight: 100 900;
+        src: url(fonts/fraunces-latin-opsz-normal.woff2) format("woff2");
+      }
+      @font-face {
+        font-family: "Fraunces Variable";
+        font-style: italic;
+        font-display: swap;
+        font-weight: 100 900;
+        src: url(fonts/fraunces-latin-opsz-italic.woff2) format("woff2");
+      }
+      @font-face {
+        font-family: "Instrument Sans Variable";
+        font-style: normal;
+        font-display: swap;
+        font-weight: 400 700;
+        src: url(fonts/instrument-sans-latin-wght-normal.woff2) format("woff2");
+      }
+      @font-face {
+        font-family: "JetBrains Mono Variable";
+        font-style: normal;
+        font-display: swap;
+        font-weight: 100 800;
+        src: url(fonts/jetbrains-mono-latin-wght-normal.woff2) format("woff2");
+      }
+
+      :root {
+        --ink: oklch(0.14 0.021 260);
+        --ink-line: oklch(0.276 0.038 258);
+        --lime: oklch(0.868 0.207 116.5);
+        --paper: oklch(0.939 0.011 120);
+        --muted: oklch(0.664 0.026 253);
+        --font-display: "Fraunces Variable", Georgia, serif;
+        --font-body: "Instrument Sans Variable", system-ui, sans-serif;
+        --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+        --ease-stage: cubic-bezier(0.22, 1, 0.36, 1);
+        color-scheme: dark;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        min-height: 100svh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        background:
+          radial-gradient(
+            115% 95% at 50% 18%,
+            color-mix(in oklab, var(--lime) 12%, transparent) 0%,
+            transparent 55%
+          ),
+          var(--ink);
+        color: var(--paper);
+        font-family: var(--font-body);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1440px;
+        margin-inline: auto;
+        padding-inline: 16px;
+      }
+
+      header {
+        padding-block: 24px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--font-display);
+        font-size: 1.35rem;
+        line-height: 1;
+        letter-spacing: -0.025em;
+      }
+
+      .logo span {
+        color: var(--muted);
+      }
+
+      /* El isotipo lleva fondo oscuro: así no se ve el cuadrado sobre el resplandor. */
+      .logo img {
+        mix-blend-mode: lighten;
+      }
+
+      main {
+        display: flex;
+        align-items: center;
+        padding-block: 48px;
+      }
+
+      .status {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 0 32px;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .status::before {
+        content: "";
+        flex: none;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--lime);
+        animation: pulse 2.4s ease-in-out infinite;
+      }
+
+      h1 {
+        max-width: 15ch;
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(2.75rem, 8.5vw, 7.5rem);
+        font-weight: 400;
+        line-height: 0.95;
+        letter-spacing: -0.025em;
+        text-wrap: balance;
+      }
+
+      .ignite {
+        font-style: italic;
+        background: linear-gradient(180deg, #e7f24a 0%, #7fb01c 85%, #3e5b14 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .intro {
+        max-width: 46ch;
+        margin: 48px 0 0;
+        font-size: 15px;
+        line-height: 1.625;
+        text-wrap: pretty;
+        color: var(--muted);
+      }
+
+      .rise {
+        animation: rise 1s var(--ease-stage) both;
+      }
+
+      footer {
+        border-top: 1px solid var(--ink-line);
+        padding-block: 24px;
+        animation: rise 1s var(--ease-stage) 0.3s both;
+      }
+
+      footer .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 8px 32px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      footer p {
+        margin: 0;
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(28px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        50% {
+          opacity: 0.35;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .container {
+          padding-inline: 24px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <img src="favicon.png" alt="" width="30" height="30" />
+          <div>epsilon<span>media</span></div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <p class="status rise">Web en construcción</p>
+        <h1 class="rise" style="animation-delay: 90ms">
+          Nuestra nueva web se enciende <span class="ignite">muy pronto</span>.
+        </h1>
+        <p class="intro rise" style="animation-delay: 180ms">
+          Epsilon Media es ingeniería audiovisual: instalaciones fijas y producción técnica de
+          eventos.
+        </p>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>© 2026 Epsilon Media</p>
+        <p>epsilonmedia.eu</p>
+      </div>
+    </footer>
+  </body>
+</html>
