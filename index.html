@@ -117,22 +117,7 @@
       }
 
       .logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-family: var(--font-display);
-        font-size: 1.35rem;
-        line-height: 1;
-        letter-spacing: -0.025em;
-      }
-
-      .logo span {
-        color: var(--muted);
-      }
-
-      /* El isotipo lleva fondo oscuro: así no se ve el cuadrado sobre el resplandor. */
-      .logo img {
-        mix-blend-mode: lighten;
+        display: block;
       }
 
       main {
@@ -253,10 +238,7 @@
   <body>
     <header>
       <div class="container">
-        <div class="logo">
-          <img src="favicon.png" alt="" width="30" height="30" />
-          <div>epsilon<span>media</span></div>
-        </div>
+        <img class="logo" src="logo.svg" alt="Epsilon Media" width="203" height="32" />
       </div>
     </header>
 
